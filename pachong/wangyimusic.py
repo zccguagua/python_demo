@@ -9,20 +9,12 @@ ws1 = wb.active  # 当前打开的shell页
 ws1.title = "音乐飙升榜"  # 更改默认的sheet名称
 DOWNLOAD_URL = 'https://music.163.com/#/discover/toplist'
 
-
-# 爬取网易云音乐飙升榜
-# 由于榜单是iframe嵌套需使用selenium
-# https://selenium-python.readthedocs.io/installation.html
-# 需要下载对应的驱动包 将驱动包放在 python.exe同一文件夹
-# 放在Anaconda3
-# 分析html语言构成
-
 def main():
     """获取url地址页面内容"""
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'
     }
-    driver = webdriver.Chrome()  # 需要下载驱动包，将驱动包放在 python.exe同一文件夹
+    driver = webdriver.Chrome()
     # https://selenium-python.readthedocs.io/installation.html
     driver.get(DOWNLOAD_URL)
     driver.switch_to.frame("g_iframe")
